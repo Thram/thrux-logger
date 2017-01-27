@@ -19,4 +19,4 @@ addMidleware(thruxLogger);
 
 ### Console Output
 
-[Console Example](http://i.imgur.com/sPNnBdE.png)
+![Console Example](http://i.imgur.com/sPNnBdE.png)
