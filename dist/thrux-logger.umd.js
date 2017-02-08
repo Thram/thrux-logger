@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["thrux"] = factory();
+		exports["thrux-logger"] = factory();
 	else
-		root["thrux"] = factory();
+		root["thrux-logger"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
