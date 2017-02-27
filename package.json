@@ -35,10 +35,10 @@
     "babel-register": "^6.23.0",
     "codecov.io": "^0.1.6",
     "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^1.2.0",
+    "cz-conventional-changelog": "^2.0.0",
     "ghooks": "^2.0.0",
-    "npm-run-all": "^4.0.1",
-    "rimraf": "^2.5.4",
+    "npm-run-all": "^4.0.2",
+    "rimraf": "^2.6.1",
     "semantic-release": "^6.3.2",
     "umd": "^3.0.1",
     "webpack": "^2.2.1"
