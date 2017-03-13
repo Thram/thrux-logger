@@ -14,7 +14,10 @@ import {addMidleware} from 'thrux';
 import thruxLogger from 'thrux-logger';
 
 
-addMidleware(thruxLogger);
+addMidleware(thruxLogger());
+
+// Now you can whitelist what state you want to log
+addMidleware(thruxLogger(['someState']));
 ```
 
 ### Console Output
