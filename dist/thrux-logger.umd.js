@@ -110,18 +110,23 @@ var blackTitle = colors.black + ' ' + fontWeights.bold,
     blueTitle = colors.blue + ' ' + fontWeights.bold,
     blueText = colors.blue + ' ' + fontWeights.normal;
 
-var logger = function logger(_ref) {
-  var state = _ref.state,
-      action = _ref.action,
-      prev = _ref.prev,
-      payload = _ref.payload,
-      next = _ref.next;
+var logger = function logger() {
+  var whitelist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  return function (_ref) {
+    var state = _ref.state,
+        action = _ref.action,
+        prev = _ref.prev,
+        payload = _ref.payload,
+        next = _ref.next;
 
-  console[console.group ? 'group' : 'log']('%cState: %c' + state + ' - %cAction: %c' + action + ' - %cTime: %c' + new Date().toISOString(), greenText, greenTitle, blueText, blueTitle, blackText, blackTitle);
-  console.log('%cPrevious State:', redTitle, prev);
-  console.log('%cPayload:', blackTitle, payload);
-  console.log('%cNext State:', blueTitle, next);
-  console.group && console.groupEnd();
+    if (whitelist.length === 0 || whitelist.includes(state)) {
+      console[console.group ? 'group' : 'log']('%cState: %c' + state + ' - %cAction: %c' + action + ' - %cTime: %c' + new Date().toISOString(), greenText, greenTitle, blueText, blueTitle, blackText, blackTitle);
+      console.log('%cPrevious State:', redTitle, prev);
+      console.log('%cPayload:', blackTitle, payload);
+      console.log('%cNext State:', blueTitle, next);
+      console.group && console.groupEnd();
+    }
+  };
 };
 
 exports.default = logger;

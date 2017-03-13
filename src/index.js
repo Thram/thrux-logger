@@ -22,13 +22,15 @@ const blackTitle = `${colors.black} ${fontWeights.bold}`,
       blueTitle  = `${colors.blue} ${fontWeights.bold}`,
       blueText   = `${colors.blue} ${fontWeights.normal}`;
 
-const logger = ({state, action, prev, payload, next}) => {
-  console[console.group ? 'group' : 'log'](`%cState: %c${state} - %cAction: %c${action} - %cTime: %c${new Date().toISOString()}`,
+const logger = (whitelist = []) => ({state, action, prev, payload, next}) => {
+  if (whitelist.length === 0 || whitelist.includes(state)) {
+    console[console.group ? 'group' : 'log'](`%cState: %c${state} - %cAction: %c${action} - %cTime: %c${new Date().toISOString()}`,
       greenText, greenTitle, blueText, blueTitle, blackText, blackTitle);
-  console.log(`%cPrevious State:`, redTitle, prev);
-  console.log(`%cPayload:`, blackTitle, payload);
-  console.log(`%cNext State:`, blueTitle, next);
-  console.group && console.groupEnd();
+    console.log(`%cPrevious State:`, redTitle, prev);
+    console.log(`%cPayload:`, blackTitle, payload);
+    console.log(`%cNext State:`, blueTitle, next);
+    console.group && console.groupEnd();
+  }
 };
 
 export default logger;
