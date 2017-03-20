@@ -12,20 +12,19 @@ var colors = {
   red: 'color: crimson;',
   green: 'color: teal;',
   blue: 'color: cornflowerblue;'
-},
-    fontWeights = {
+};
+var fontWeights = {
   bold: 'font-weight: bold;',
   normal: 'font-weight: normal;'
 };
 
-var blackTitle = colors.black + ' ' + fontWeights.bold,
-    blackText = colors.black + ' ' + fontWeights.normal,
-    greenTitle = colors.green + ' ' + fontWeights.bold,
-    greenText = colors.green + ' ' + fontWeights.normal,
-    redTitle = colors.red + ' ' + fontWeights.bold,
-    redText = colors.red + ' ' + fontWeights.normal,
-    blueTitle = colors.blue + ' ' + fontWeights.bold,
-    blueText = colors.blue + ' ' + fontWeights.normal;
+var blackTitle = colors.black + ' ' + fontWeights.bold;
+var blackText = colors.black + ' ' + fontWeights.normal;
+var greenTitle = colors.green + ' ' + fontWeights.bold;
+var greenText = colors.green + ' ' + fontWeights.normal;
+var redTitle = colors.red + ' ' + fontWeights.bold;
+var blueTitle = colors.blue + ' ' + fontWeights.bold;
+var blueText = colors.blue + ' ' + fontWeights.normal;
 
 var logger = function logger() {
   var whitelist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -41,7 +40,7 @@ var logger = function logger() {
       console.log('%cPrevious State:', redTitle, prev);
       console.log('%cPayload:', blackTitle, payload);
       console.log('%cNext State:', blueTitle, next);
-      console.group && console.groupEnd();
+      if (console.group) console.groupEnd();
     }
   };
 };
